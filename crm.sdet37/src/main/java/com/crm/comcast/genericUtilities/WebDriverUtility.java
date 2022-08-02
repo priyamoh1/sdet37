@@ -1,5 +1,8 @@
 package com.crm.comcast.genericUtilities;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.time.Duration;
 import java.util.Iterator;
@@ -174,7 +177,7 @@ public class WebDriverUtility
 		driver.switchTo().defaultContent();
 	}
 	/**
-	 * this method is used to select a element in a dropdown using index 
+	 * this method is used to select a element in a drop down using index 
 	 * @param element
 	 * @param index
 	 */
@@ -218,7 +221,7 @@ public class WebDriverUtility
 		}
 	}
 	/**
-	 * this method is used to mouseover on element using actions class
+	 * this method is used to mouse over on element using actions class
 	 * @param driver
 	 * @param element
 	 */
@@ -228,7 +231,7 @@ public class WebDriverUtility
 		action.moveToElement(element).perform();
 	}
 	/**
-	 * this method is used to right clcik on the element
+	 * this method is used to right click on the element
 	 * @param driver
 	 * @param element
 	 */
@@ -238,7 +241,7 @@ public class WebDriverUtility
 		action.contextClick(element).perform();
 	}
 	/**
-	 * this method is used to double clcik on the element
+	 * this method is used to double click on the element
 	 * @param driver
 	 * @param element
 	 */
@@ -257,7 +260,7 @@ public class WebDriverUtility
 		action.sendKeys(Keys.ENTER).perform();
 	}
 	/**
-	 * this method is used to take screeenshot
+	 * this method is used to take screenshot
 	 * @param driver
 	 * @param screenShotName
 	 */
@@ -270,7 +273,8 @@ public class WebDriverUtility
 		try {
 			FileUtils.copyFile(src, dst);
 
-		} catch (Exception e) 
+		} 
+		catch (Exception e) 
 		{
 			// TODO: handle exception
 			e.printStackTrace();
@@ -289,7 +293,8 @@ public class WebDriverUtility
 		try 
 		{
 			wait.wait(10);
-		} catch (Exception e) 
+		} 
+		catch (Exception e) 
 		{
 			e.printStackTrace();
 		}
@@ -398,6 +403,20 @@ public class WebDriverUtility
 			System.out.println("alert message is not verified");
 		}
 		alert.dismiss();
+	}
+	public void RobotControlV() throws AWTException
+	{
+		Robot r=new Robot();
+		r.keyPress(KeyEvent.VK_CONTROL);
+		r.keyPress(KeyEvent.VK_V);
+		r.keyRelease(KeyEvent.VK_CONTROL);
+		r.keyRelease(KeyEvent.VK_V);
+	}
+	public void EnterAndRelease() throws AWTException
+	{
+		Robot r=new Robot();
+		r.keyPress(KeyEvent.VK_ENTER);
+		r.keyRelease(KeyEvent.VK_ENTER);
 	}
 
 }

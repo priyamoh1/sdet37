@@ -11,12 +11,12 @@ import java.util.Properties;
  */
 public class FileUtility
 {
-public String getpropertyValue() throws IOException
+public String getpropertyKeyValue(String key) throws IOException
 {
 	FileInputStream fileinputstream= new FileInputStream(IConstants.filepath);
 	Properties properties= new Properties();
 	properties.load(fileinputstream);
-	String value=properties.getProperty(getpropertyValue());
+	String value=properties.getProperty(key);
 	return value;
 	
 }
